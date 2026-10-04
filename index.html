@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cosmic Love — GERDY ❤️ FITRIA</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#07051a;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:
+radial-gradient(circle at 20% 20%,#5b2a9b55 0 10%,transparent 30%),
+radial-gradient(circle at 80% 30%,#ff5da755 0 8%,transparent 28%),
+radial-gradient(circle at 50% 80%,#244aa855 0 8%,transparent 30%);z-index:-2}
+.stars{position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:
+radial-gradient(#fff 1px,transparent 1px),radial-gradient(#fff8 1px,transparent 1px);
+background-size:90px 90px,137px 137px;background-position:10px 20px,40px 70px;animation:drift 35s linear infinite}
+@keyframes drift{to{background-position:180px 190px,250px 260px}}
+.scene{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:40px 18px;position:relative}
+.card{width:min(720px,100%);text-align:center;background:#17122bcc;border:1px solid #ffffff22;border-radius:28px;padding:32px 22px;box-shadow:0 20px 70px #0008;backdrop-filter:blur(12px)}
+h1{font-size:clamp(38px,11vw,76px);margin:10px 0;background:linear-gradient(90deg,#ffd1ec,#fff,#bde9ff);-webkit-background-clip:text;color:transparent}
+h2{font-size:clamp(28px,8vw,48px);margin:8px 0 20px}p{font-size:clamp(17px,4.5vw,21px);line-height:1.75;color:#eee;margin:16px auto;max-width:620px}
+.small{font-size:14px;color:#cfc6e8}.emoji{font-size:64px;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px) rotate(2deg)}}
+button{border:0;border-radius:999px;padding:14px 22px;font-weight:800;font-size:16px;cursor:pointer;margin:7px;background:linear-gradient(135deg,#ff79bb,#8d7bff);color:white;box-shadow:0 8px 25px #0006;transition:.2s}
+button:hover{transform:translateY(-2px)}button.secondary{background:#ffffff16;border:1px solid #ffffff2c}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}.reveal.show{opacity:1;transform:none}
+.hidden{display:none}.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:520px;margin:22px auto}.choice button{margin:0;background:#ffffff12;border:1px solid #ffffff22}
+.choice button:hover{background:#ffffff22}.feedback{min-height:90px;margin-top:15px}
+.planet{font-size:90px;animation:spin 12s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.kitty{font-size:76px;animation:float 3.5s ease-in-out infinite}.flower{font-size:62px;animation:float 2.8s ease-in-out infinite}
+.top-controls{position:fixed;top:14px;right:14px;z-index:20}.top-controls button{padding:10px 14px;font-size:14px;background:#0e0b20dd}
+.rocket{font-size:74px;animation:launch 2.4s ease-in forwards}@keyframes launch{to{transform:translate(110vw,-100vh) rotate(-20deg);opacity:0}}
+.heart{font-size:50px;animation:pulse 1.4s infinite}@keyframes pulse{50%{transform:scale(1.18)}}
+.end-star{font-size:70px;animation:twinkle 2s infinite}@keyframes twinkle{50%{opacity:.35;transform:scale(.85)}}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#17122eee;border:1px solid #ffffff22;padding:10px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s;z-index:30}
+#toast.show{opacity:1}
+@media(max-width:520px){.card{padding:26px 16px;border-radius:22px}.choice{grid-template-columns:1fr}p{line-height:1.65}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="top-controls"><button id="musicBtn" class="secondary">🔇 Musik OFF</button></div>
+<div id="toast"></div>
+
+<section class="scene" id="s1">
+<div class="card">
+<div class="emoji">🐱‍🚀</div>
+<p class="small reveal">📡 Ada pesan dari galaksi jauh...</p>
+<h1 class="reveal">FITRIA</h1>
+<p class="reveal">Untuk seseorang yang entah kenapa selalu berhasil bikin hati ini error. ❤️</p>
+<p class="small reveal">Dari seseorang bernama...</p>
+<h2 class="reveal">🚀 GERDY</h2>
+<p class="small reveal">Pesan ini melewati 7 bintang, 3 planet, dan satu rasa malu yang cukup besar. 😭❤️</p>
+<button id="openBtn">🚀 BUKA SURAT GERDY</button>
+</div>
+</section>
+
+<section class="scene hidden" id="s2">
+<div class="card">
+<div class="planet">🪐</div><div class="emoji">💌</div>
+<h2>Untuk FITRIA</h2>
+<p>Hai FITRIA...</p>
+<p>GERDY sebenarnya mau bilang sesuatu. Tapi kalau cuma bilang “aku suka kamu”, rasanya terlalu biasa.</p>
+<p>Jadi GERDY memilih mengirimkannya melewati luar angkasa. 🌌❤️</p>
+<p>Karena dari sekian banyak orang, entah kenapa FITRIA yang selalu berhasil muncul di pikiran GERDY.</p>
+<button onclick="go(3)">💗 Lanjut</button>
+</div>
+</section>
+
+<section class="scene hidden" id="s3">
+<div class="card">
+<div class="heart">❤️</div><h2>Gombalan Galaksi</h2>
+<div id="gombal"></div>
+<button id="nextGombal">💗 Gombalan Berikutnya</button>
+<button class="secondary" onclick="go(4)">🚀 Lanjut</button>
+</div>
+</section>
+
+<section class="scene hidden" id="s4">
+<div class="card">
+<div class="kitty">🐱‍🚀</div><h2>🧩 Misi Rahasia</h2>
+<div id="quiz"></div>
+<div class="feedback" id="feedback"></div>
+</div>
+</section>
+
+<section class="scene hidden" id="s5">
+<div class="card">
+<div class="kitty">🐱‍🚀</div><div class="flower">🌸</div>
+<h2>🐱🌸 Kucing & Bunga</h2>
+<p><b>“FITRIA, ini buat kamu.”</b></p>
+<p>Katanya bunga bisa layu... tapi semoga rasa kagum GERDY ke FITRIA nggak ikut layu.</p>
+<p>😼 “Oh iya... GERDY masih punya satu pesan terakhir.”</p>
+<button onclick="go(6)">🌌 Lihat Pesan Terakhir</button>
+</div>
+</section>
+
+<section class="scene hidden" id="s6">
+<div class="card">
+<div class="emoji">🌙🐱‍🚀</div><h2>FITRIA...</h2>
+<p>Kalau FITRIA sudah sampai di sini, berarti perjalanan kecil GERDY akhirnya sampai di ujung.</p>
+<p>GERDY nggak tahu surat ini bakal membuat FITRIA senyum, ketawa, atau bilang “GERDY apaan sih 😭😂”.</p>
+<p>Tapi nggak apa-apa. GERDY cuma ingin membuat satu momen kecil yang suatu hari nanti mungkin bisa FITRIA ingat sambil tersenyum.</p>
+<p>Di antara begitu banyak orang, begitu banyak cerita, dan begitu luasnya dunia... GERDY bersyukur pernah menemukan seseorang bernama FITRIA.</p>
+<h2>Karena sedang memikirkan FITRIA. ❤️</h2>
+<button onclick="go(7)">🌌 Lanjut ke Ending</button>
+</div>
+</section>
+
+<section class="scene hidden" id="s7">
+<div class="card">
+<div class="end-star">⭐</div><div class="emoji">🌙</div>
+<p>Terima kasih sudah menjadi bagian kecil dari cerita GERDY. ❤️</p>
+<p><b>Sampai kapan pun...</b></p>
+<p><b>FITRIA akan tetap menjadi salah satu nama yang pernah GERDY tulis dengan hati.</b></p>
+<div class="flower">🌸</div>
+<h2>Surat selesai.</h2>
+<h2>Tapi kenangannya... semoga tidak. ❤️</h2>
+<p class="small">— GERDY</p>
+<button class="secondary" onclick="go(1)">🌌 Kembali ke Awal</button>
+</div>
+</section>
+
+<script>
+let audioCtx=null, master=null, musicOn=false, currentScene=1;
+let gIndex=0;
+const gombals=[
+"Kalau hati GERDY punya Google Maps...<br><br>tujuannya cuma satu:<br><b>📍 FITRIA.</b>",
+"NASA boleh menemukan banyak planet...<br><br>tapi belum menemukan planet yang bikin GERDY senyum cuma karena satu orang.<br><br><b>Namanya FITRIA. ❤️</b>",
+"Gravitasi bikin GERDY jatuh ke tanah...<br><br><b>FITRIA bikin GERDY jatuh hati. ❤️</b>"
+];
+const quizzes=[
+{q:"Apa yang nggak bisa dilihat, tapi bisa bikin seseorang senyum sendiri?",a:["❤️ Perasaan","🌪️ Angin","🪨 Batu","📶 WiFi"],correct:0,msg:"BENAR! ❤️<br><br>Perasaan yang GERDY maksud sebenarnya...<br><b>perasaan GERDY ke FITRIA. 😳</b>"},
+{q:"Apa persamaan FITRIA dan gravitasi?",a:["A. Sama-sama bikin jatuh","B. Sama-sama bikin pusing","C. Semua benar"],correct:2,msg:"BENAR! 😭❤️<br><br>Gravitasi bikin GERDY jatuh ke tanah...<br><b>FITRIA bikin GERDY jatuh hati.</b>"}
+];
+let qIndex=0;
+
+function showToast(t){const x=document.getElementById('toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1800)}
+function go(n){
+ document.querySelectorAll('.scene').forEach(x=>x.classList.add('hidden'));
+ document.getElementById('s'+n).classList.remove('hidden');
+ currentScene=n; window.scrollTo({top:0,behavior:'smooth'});
+ if(n===3){gIndex=0;renderGombal()}
+ if(n===4){qIndex=0;renderQuiz()}
+ if(n===6) lowerMusic();
+ if(n===7) fadeMusic();
+}
+function renderGombal(){
+ document.getElementById('gombal').innerHTML='<p>'+gombals[gIndex]+'</p>';
+ document.getElementById('nextGombal').textContent=gIndex===gombals.length-1?'❤️ Sudah, Lanjut':'💗 Gombalan Berikutnya';
+}
+document.getElementById('nextGombal').onclick=()=>{
+ if(gIndex<gombals.length-1){gIndex++;renderGombal()}else go(4);
+};
+function renderQuiz(){
+ const q=quizzes[qIndex];
+ document.getElementById('quiz').innerHTML='<p><b>'+q.q+'</b></p><div class="choice">'+q.a.map((a,i)=>`<button onclick="answer(${i})">${a}</button>`).join('')+'</div>';
+ document.getElementById('feedback').innerHTML='';
+}
+function answer(i){
+ const q=quizzes[qIndex], f=document.getElementById('feedback');
+ if(i!==q.correct){f.innerHTML='Hehe... hampir benar 😼<br><small>Coba lagi, FITRIA.</small>'; return}
+ f.innerHTML=q.msg;
+ if(qIndex<quizzes.length-1){
+   setTimeout(()=>{qIndex++;renderQuiz()},3500);
+ }else{
+   setTimeout(()=>go(5),4500);
+ }
+}
+function startAudio(){
+ if(audioCtx) return;
+ audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+ master=audioCtx.createGain(); master.gain.value=.001; master.connect(audioCtx.destination);
+ // Gentle synthesized ambient music: no external file required.
+ const notes=[261.63,329.63,392,523.25,392,329.63];
+ let t=audioCtx.currentTime;
+ function loop(){
+   if(!musicOn) return;
+   notes.forEach((f,i)=>{
+     const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+     o.type='sine';o.frequency.value=f;
+     g.gain.setValueAtTime(0,t+i*1.15);g.gain.exponentialRampToValueAtTime(.0001,t+i*1.15+1.05);
+     o.connect(g);g.connect(master);o.start(t+i*1.15);o.stop(t+i*1.15+1.08);
+   });
+   t+=notes.length*1.15;
+   setTimeout(loop,(notes.length*1.15-0.2)*1000);
+ }
+ musicOn=true; master.gain.exponentialRampToValueAtTime(.12,audioCtx.currentTime+2.5); loop();
+ document.getElementById('musicBtn').textContent='🔊 Musik ON';
+}
+function fadeMusic(){
+ if(!master)return;
+ master.gain.cancelScheduledValues(audioCtx.currentTime);
+ master.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+4.5);
+ musicOn=false;document.getElementById('musicBtn').textContent='🔇 Musik OFF';
+}
+function lowerMusic(){
+ if(master&&musicOn) master.gain.exponentialRampToValueAtTime(.06,audioCtx.currentTime+2);
+}
+document.getElementById('openBtn').onclick=()=>{
+ const b=document.getElementById('openBtn');b.innerHTML='🚀 Meluncur...';b.classList.add('rocket');
+ startAudio();
+ setTimeout(()=>go(2),2200);
+};
+document.getElementById('musicBtn').onclick=()=>{
+ if(!audioCtx){startAudio();return}
+ if(musicOn) fadeMusic();
+ else {musicOn=true;master.gain.exponentialRampToValueAtTime(.12,audioCtx.currentTime+1);document.getElementById('musicBtn').textContent='🔊 Musik ON';}
+};
+</script>
+</body>
+</html>
